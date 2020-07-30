@@ -22,4 +22,5 @@ import Home.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.views.home, name='home'),
+    # path('sendQuery',)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
