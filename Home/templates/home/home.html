@@ -3,60 +3,106 @@
     HOME
 {% endblock %}
 {% block content %}
-{#    <h1 class="mt-2 mb-2 text-center">Event Highlights</h1>#}
-    <div class="mt-2 mb-2" style="background-color: #ffffff">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                {% for slider in sliders.all %}
-                    {% if slider.id == 1 %}
-                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ slider.id }}"
-                            class="active"></li>
-                    {% else %}
-                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ slider.id }}"></li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner" style="padding: 0 2%;">
-                {% for slider in sliders.all %}
-                    {% if slider.id == 1 %}
-                        <div class="carousel-item active">
-                            <div class="row no-gutters">
-                                <div class="col-8">
-                                    <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
-                                </div>
-                                <div class="col-4">
-                                    <div class="mt-5 d-none d-md-block container">
-                                        <h2 class="text-center" style="color: #000680;">{{ slider.title }}</h2>
-                                        <p style="color: #000680; text-align: justify; padding: 2% 2% 2% 10%;">{{ slider.short_description }}</p>
+    {#    <h1 class="mt-2 mb-2 text-center">Event Highlights</h1>#}
+    <section>
+        <div class="mt-2 mb-2" style="background-color: #ffffff">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for slider in sliders.all %}
+                        {% if slider.id == 1 %}
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ slider.id }}"
+                                class="active"></li>
+                        {% else %}
+                            <li data-target="#carouselExampleCaptions" data-slide-to="{{ slider.id }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner" style="padding: 0 2%;">
+                    {% for slider in sliders.all %}
+                        {% if slider.id == 1 %}
+                            <div class="carousel-item active">
+                                <div class="row no-gutters">
+                                    <div class="col-8">
+                                        <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
+                                    </div>
+                                    <div class="col-4"
+                                         style="display: flex; align-items: center; justify-content: center;">
+                                        <div class="mt-5 d-none d-md-block container">
+                                            <h2 class="text-center" style="color: #000680;">{{ slider.title }}</h2>
+                                            <p style="color: #000680; text-align: justify; padding: 2% 2% 2% 10%;">{{ slider.short_description | truncatechars:900 }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% else %}
-                        <div class="carousel-item">
-                            <div class="row no-gutters">
-                                <div class="col-8">
-                                    <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
-                                </div>
-                                <div class="col-4">
-                                    <div class="mt-5 d-none d-md-block">
-                                        <h2 class="text-center" style="color: #000680">{{ slider.title }}</h2>
-                                        <p style="color: #000680; text-align: justify; padding: 2% 0 2% 10%;">{{ slider.short_description }}</p>
+                        {% else %}
+                            <div class="carousel-item">
+                                <div class="row no-gutters">
+                                    <div class="col-8">
+                                        <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
+                                    </div>
+                                    <div class="col-4"
+                                         style="display: flex; align-items: center; justify-content: center;">
+                                        <div class="mt-5 d-none d-md-block">
+                                            <h2 class="text-center" style="color: #000680">{{ slider.title }}</h2>
+                                            <p style="color: #000680; text-align: justify; padding: 2% 0 2% 10%;">{{ slider.short_description | truncatechars:900 }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" style="color: black;" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" style="color: black;" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-    </div>
+    </section>
+    <section class="" style="background-color: #f2f2fa;">
+        <div class="container" style="">
+            <h1 class="text-center" style="padding-top: 2%;"> OUR <span style="color: maroon;">VISION</span></h1>
+            <ul style="list-style-type: none;">
+                <li>
+
+                    <p class="text-justify" style="font-size: larger; padding-bottom: 2%; display: inline;">
+                        {#                        <i class="fas fa-glasses" style="font-size: x-large;"></i>#}
+                        Endeavor to be a Centre for Educational excellence in Computer Engineering to
+                        nurture technology leaders of tomorrow for the gradual progress of society.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="container" style="">
+            <h1 class="text-center" style="padding-top: 2%;"> OUR <span style="color: maroon;">MISSION</span></h1>
+            <ul class="text-justify mb-0" style="font-size: larger; padding-bottom: 2%; list-style-type: none;">
+                <li style="padding-bottom: 2%;">
+                    <i class="fas fa-hand-point-right" style="font-size: 140%;"></i>
+                    <p style="display: inline;">To teach Computer Engineering as a multifaceted, humanistic discipline
+                        of critical
+                        thinking and cutting-edge research problem solving.</p>
+                </li>
+                <li style="padding-bottom: 2%;">
+                    <i class="fas fa-hand-point-right" style="font-size: 140%;"></i>
+                    <p style="display: inline;">To build competitive academic environment for training and placements,
+                        higher
+                        studies and proactive innovative leadership.</p>
+                </li>
+                <li style="padding-bottom: 2%;">
+                    <i class="fas fa-hand-point-right" style="font-size: 140%;"></i>
+                    <p style="display: inline;">Encourage entrepreneurship towards self-employment for economic
+                        well-being of
+                        individuals and the nation.</p>
+                </li>
+                <li style="padding-bottom: 2%;">
+                    <i class="fas fa-hand-point-right" style="font-size: 140%;"></i>
+                    <p style="display: inline;">Facilitate academia-industry collaborations and societal outreach
+                        programs.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
 {% endblock %}
