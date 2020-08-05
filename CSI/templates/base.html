@@ -24,6 +24,10 @@
 
     <!-- Custom Css -->
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
+
         h1, h2, h3, h4, h5, h6, a, p, i {
             color: #000680;
         }
@@ -60,10 +64,10 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto" id="nav-font-color">
-                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Events</a>
+                <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="{% url 'eventsHome' %}">Events</a>
                 <a class="nav-item nav-link" href="#">Committee</a>
-                <a class="nav-item nav-link" href="#">Contact Us</a>
+                <a class="nav-item nav-link" href="#contact-us">Contact Us</a>
             </div>
         </div>
     </div>
