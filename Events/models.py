@@ -10,6 +10,7 @@ class Event(models.Model):
 	description = models.TextField(max_length=350)
 	STATUS = (('upcoming', 'upcoming'), ('completed', 'completed'))
 	status = models.CharField(max_length=10, choices=STATUS, default='upcoming')
+	registration_url = models.URLField()
 	report = models.TextField(blank=True)
 	images_url = models.URLField(blank=True)
 	# TODO Add visual graphs

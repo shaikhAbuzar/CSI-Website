@@ -1,20 +1,105 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
     All Events
 {% endblock %}
 {% block content %}
     {#  UPCOMING EVENTS  #}
-    {#  TODO Add upcoming events  #}
     <section>
         <div class="container">
-            <h1>Upcoming Events Section</h1>
+            <div class="card bg-dark mt-4 mb-4">
+                <img src="{% static 'upcomingEvents.jpg' %}" class="card-img" alt="Upcoming Image">
+                <div class="card-img-overlay">
+                    <h1 class="card-title display-3"
+                        style="color: #63daf3; text-align: center; font-family: Arial,fantasy;">
+                        UPCOMING EVENTS
+                    </h1>
+                </div>
+            </div>
+
+            {% if upcoming_events.all == None %}
+                <h1 class="display-1" style="text-shadow: #000680; text-align: center;">
+                    NEW AMAZING EVENTS COMING SOON....!!!😉
+                </h1>
+            {% endif %}
+
+            <div class="row row-cols-1 row-cols-md-2" style="align-items: center;">
+                {% for event in upcoming_events.all %}
+                    <div class="col-6">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ event.poster.url }}" class="card-img" alt="Event Poster">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ event.title }}</h5>
+                                        <p class="card-text">{{ event.description | truncatechars:180 }}</p>
+                                        <p class="card-text">
+                                            <i class="far fa-calendar-alt"></i> {{ event.event_date }}
+                                            <i class="fas fa-clock"></i> {{ event.event_time }}
+                                        </p>
+                                        <a class="btn btn-md" href="{{ event.registration_url }}" role="button"
+                                           target="_blank" style="background-color: #02099d; color: #63daf3;">
+                                            Register
+                                        </a>
+                                        <a class="btn btn-md" href="#" role="button"
+                                           style="background-color: #02099d; color: #63daf3;">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <a class="display-4" style="text-align: center; color: #000680;"><i class="fas fa-angle-double-right"></i> More Events</a>
+            </div>
         </div>
     </section>
     {#  PAST EVENTS  #}
-    {#  TODO Add past events  #}
-    <section>
+    <section class="mb-4">
         <div class="container">
-            <h1>Past Events Section</h1>
-        </div>
+            <div class="card bg-dark mt-4 mb-4">
+                <img src="{% static 'pastEvents.jpg' %}" class="card-img" alt="Upcoming Image">
+                <div class="card-img-overlay">
+                    <h1 class="card-title display-3"
+                        style="color: #e3f6d6; text-align: center; font-family: Arial,fantasy;">
+                        PAST EVENTS
+                    </h1>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2" style="align-items: center;">
+                {% for event in past_events.all %}
+                    <div class="col-6">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ event.poster.url }}" class="card-img" alt="Event Poster">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ event.title }}</h5>
+                                        <p class="card-text">{{ event.description | truncatechars:180 }}</p>
+                                        <p class="card-text">
+                                            <i class="far fa-calendar-alt"></i> {{ event.event_date }}
+                                            <i class="fas fa-clock"></i> {{ event.event_time }}
+                                        </p>
+                                        <a class="btn btn-md" href="#" role="button"
+                                           style="background-color: #02099d; color: #63daf3;">
+                                            Report
+                                        </a>
+                                        <a class="btn btn-md" href="{{ event.images_url }}" role="button"
+                                           target="_blank" style="background-color: #02099d; color: #63daf3;">
+                                            Photos
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <a class="display-4" style="text-align: center; color: #000680;"><i class="fas fa-angle-double-right"></i> More Events</a>
+            </div>
     </section>
 {% endblock %}
