@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Event
 
 
@@ -11,9 +11,15 @@ def events_home(request):
 	return render(request, r'Events/eventsHome.html', {'upcoming_events': upcoming_events, 'past_events': past_events})
 
 
-def upcoming_event_details(request):
-	return render(request, r'Events\upcomingEvent.html')
+def event_details(request, event_id):
+	event = get_object_or_404(Event, pk=event_id)
+	return render(request, r'Events\eventDetails.html', {'event': event})
 
 
-def past_event_details(request):
-	return render(request, r'Events\pastEvent.html')
+# TODO More Events Page
+def all_events(request, event_type):
+	if "past" in event_type.lower():
+		events = Event.objects.filter(status='completed').order_by('-event_date', '-event_time')
+	else:
+		events = Event.objects.filter(status='upcoming').order_by('event_date', 'event_time')
+	return render(request, r'Events\moreEvents.html', {'eventTitle': event_type, 'events': events})

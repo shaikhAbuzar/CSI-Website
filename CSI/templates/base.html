@@ -24,7 +24,7 @@
 
     <!-- Custom Css -->
     <style>
-        html{
+        html {
             scroll-behavior: smooth;
         }
 
@@ -43,6 +43,7 @@
             letter-spacing: -1px;
             font-family: "Open Sans", monospace;
             color: #000680;
+            font-size: 250%;
         }
 
         #nav-font-color a {
@@ -54,15 +55,16 @@
 </head>
 <body>
 <!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e5e6f6;">
+<nav class="navbar navbar-expand-lg" style="background-color: #e5e6f6;">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}" id="logo-name">
-            <img src="{% static 'csi-logo.png' %}" style="height: 65px; width: 65px;"/>
+        <a class="navbar-brand text-format" href="{% url 'home' %}" id="logo-name">
+            <img src="{% static 'csi-logo.png' %}" style="height: 65px; width: 65px;" alt="Logo"/>MHSSCE CHAPTER
         </a>
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <h1 class="text-format">MHSSCE CHAPTER</h1>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ml-auto" id="nav-font-color">
                 <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'eventsHome' %}">Events</a>
@@ -95,13 +97,13 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-2">
                 <h4 class="text-uppercase mb-4">Useful links</h4>
                 <p>
-                    <a href="" style="color: #000680;">Events</a>
+                    <a href="{% url 'eventsHome' %}" style="color: #000680;">Events</a>
                 </p>
                 <p>
-                    <a href="" style="color: #000680;">About us</a>
+                    <a href="#vision-mission" style="color: #000680;">About us</a>
                 </p>
                 <p>
-                    <a href="" style="color: #000680;">Contact Us</a>
+                    <a href="#contact-us" style="color: #000680;">Contact Us</a>
                 </p>
                 <!-- TODO Blogs
                 <p>

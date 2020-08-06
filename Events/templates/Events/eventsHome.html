@@ -43,7 +43,7 @@
                                            target="_blank" style="background-color: #02099d; color: #63daf3;">
                                             Register
                                         </a>
-                                        <a class="btn btn-md" href="#" role="button"
+                                        <a class="btn btn-md" href="{% url 'event_details' event.id %}" role="button"
                                            style="background-color: #02099d; color: #63daf3;">
                                             Read More
                                         </a>
@@ -53,7 +53,11 @@
                         </div>
                     </div>
                 {% endfor %}
-                <a class="display-4" style="text-align: center; color: #000680;"><i class="fas fa-angle-double-right"></i> More Events</a>
+                {% if upcoming_events.all != Null %}
+                    <a href="{% url 'all_events' 'Upcoming Events' %}" class="display-4" style="text-align: center; color: #000680;">
+                        <i class="fas fa-angle-double-right"></i> More Events
+                    </a>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -85,7 +89,7 @@
                                             <i class="far fa-calendar-alt"></i> {{ event.event_date }}
                                             <i class="fas fa-clock"></i> {{ event.event_time }}
                                         </p>
-                                        <a class="btn btn-md" href="#" role="button"
+                                        <a class="btn btn-md" href="{% url 'event_details' event.id %}" role="button"
                                            style="background-color: #02099d; color: #63daf3;">
                                             Report
                                         </a>
@@ -99,7 +103,9 @@
                         </div>
                     </div>
                 {% endfor %}
-                <a class="display-4" style="text-align: center; color: #000680;"><i class="fas fa-angle-double-right"></i> More Events</a>
+                <a href="{% url 'all_events' 'Past Events' %}" class="display-4" style="text-align: center; color: #000680;">
+                    <i class="fas fa-angle-double-right"></i> More Events
+                </a>
             </div>
     </section>
 {% endblock %}

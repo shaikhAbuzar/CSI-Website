@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ eventTitle }}
+{% endblock %}
+{% block content %}
+    <div class="container mt-4 mb-4">
+        {% for event in events %}
+            <div class="card mb-4 w-100" style="background-color: #f0f0fd;">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+                        <img src="{{ event.poster.url }}" class="card-img" alt="Event Poster"/>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 200%;">{{ event.title }}</h5>
+                            <p class="card-text" style="font-size: 115%; text-align: justify; color: #000680;">
+                                {{ event.description | truncatechars:500 }}
+                            </p>
+                            <p class="card-text" style="font-size: 135%; text-align: justify; color: #000680;">
+                                Event Fee:
+                                <i class="fas fa-rupee-sign"></i> {{ event.event_fee }} /- only 🤷‍♀️🤷‍♂️
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text" style="font-size: 120%; color: #000680;">
+                                <i class="far fa-calendar-alt"></i> &ensp;DATE:&emsp;{{ event.event_date }}
+                            </p>
+                            <hr/>
+                            <p class="card-text" style="font-size: 120%; color: #000680;">
+                                <i class="fas fa-clock"></i> &ensp;TIME:&emsp;{{ event.event_time }}
+                            </p>
+                            <hr/>
+                            <div>
+                                {% if eventTitle == 'Upcoming Events' %}
+                                    <a class="btn btn-outline" href="{{ event.registration_url }}" role="button" target="_blank">
+                                        Register
+                                    </a>
+                                    <hr/>
+                                    <a class="btn btn-outline" href="{% url 'event_details' event.id %}" role="button">
+                                        Read More
+                                    </a>
+                                {% else %}
+                                    <a class="btn btn-outline" href="{% url 'event_details' event.id %}" role="button">
+                                        Report
+                                    </a>
+                                    <hr/>
+                                    <a class="btn btn-outline" href="{{ event.images_url }}" role="button" target="_blank">
+                                        Images
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <style>
+        body {
+            background: linear-gradient(rgba(2, 17, 65, 0.75), rgba(2, 17, 65, 0.8)), url({% static "event-cover.jpg" %}) no-repeat center;
+            background-size: cover;
+        }
+
+        hr {
+            border: 1px solid #000680;
+            background-color: #000680;
+        }
+
+        .btn-outline {
+            border: 2px solid #000680;
+            background-color: #eef0fd;
+            color: #000680;
+            font-size: 100%;
+        }
+
+        .btn-outline:hover {
+            border: 2px solid #ffffff;
+            background-color: #000680;
+            color: #ffffff;
+            transition: border 0.5s, background-color 0.75s, color 1s;
+        }
+    </style>
+{% endblock %}
