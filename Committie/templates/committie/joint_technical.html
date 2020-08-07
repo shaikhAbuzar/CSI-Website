@@ -1,0 +1,27 @@
+<!-- TODO To add president banner  -->
+<div class="container-fluid " style="background-color: #12022c; 
+    color: #ffffff; padding-top: 25px; padding-bottom: 25px;">
+  <i class="fas fa-id-card-alt" style="font-size: 160%; color: rgb(255, 255, 255);"></i>
+  <h6 class=" text-uppercase mb-3 " style="display: inline-flex ;font-size: 150%; color: rgb(255, 254, 255);">
+    &nbsp; Technical Head </h6>
+</div>
+<div class="row row-cols-1 row-cols-md-2 mt-4">
+  {% for p in joint_technical.all %}
+  <div class="col mb-4">
+    <div class="card mb-3" style="max-width: 565px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{p.Image.url}}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">{{p.Designation}}</h5>
+              <h5 class="card-title">{{p.Name}}</h5>
+              <p class="card-text">{{ p.Quote }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
