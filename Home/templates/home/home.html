@@ -30,7 +30,8 @@
                                          style="display: flex; align-items: center; justify-content: center;">
                                         <div class="mt-5 d-none d-md-block container">
                                             <h2 class="text-center" style="color: #000680;">{{ slider.title }}</h2>
-                                            <p style="color: #000680; text-align: justify; padding: 2% 2% 2% 10%;">{{ slider.short_description | truncatechars:900 }}</p>
+                                            <p style="color: #000680; text-align: justify; padding: 2% 2% 2% 10%;">
+                                                {{ slider.short_description | truncatechars:900 }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +46,8 @@
                                          style="display: flex; align-items: center; justify-content: center;">
                                         <div class="mt-5 d-none d-md-block">
                                             <h2 class="text-center" style="color: #000680">{{ slider.title }}</h2>
-                                            <p style="color: #000680; text-align: justify; padding: 2% 0 2% 10%;">{{ slider.short_description | truncatechars:900 }}</p>
+                                            <p style="color: #000680; text-align: justify; padding: 2% 0 2% 10%;">
+                                                {{ slider.short_description | truncatechars:900 }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -112,9 +114,9 @@
         <div class="container">
             <h1 class="card-title display-3 mt-3"
                 style="color: #910838; text-align: center;">
-                EVENTS
+                <a href="{% url 'eventsHome' %}">EVENTS</a>
             </h1>
-            <hr class="w-50" style="background-color: #910838; border-width: 2px; margin-top: -1%;">
+            <hr class="w-50" style="background-color: #910838; border-width: 2px; margin-top: -1%; margin-bottom: 2%;">
 
             {% if events.all == None %}
                 <h1 class="display-1" style="text-shadow: #000680; text-align: center;">
@@ -163,11 +165,40 @@
         </div>
     </section>
 
-    {#  TODO Blogs Section  #}
+    {# Blogs Section  #}
+    <section class="mt-4 mb-4 pt-3 pb-4" style="background-color: #f2f2fa;">
+        <div class="container mt-4 mb-4">
+            <h1 class="card-title display-3 mt-3"
+                style="color: #000680; text-align: center;">
+                <a href="{% url 'blogs_home' %}">BLOGS</a>
+            </h1>
+            <hr class="w-50" style="background-color: #000680; border-width: 2px; margin-top: -1%; margin-bottom: 2%;">
+            {% if blogs == None %}
+                <h1 class="display-2 text-center">Blogs Coming Up 😁</h1>
+            {% endif %}
+            <div class="card-columns">
+                {% for blog in blogs.all %}
+                    <div class="card">
+                        <a href="{% url 'full_blog' blog.id %}"> <img src="{{ blog.cover_pic.url }}"
+                                                                      class="card-img cover-img" alt="Cover Image"></a>
+                        <div class="card-body">
+                            <div class="w-100 h-100" style="border: 2px solid #000680; padding: 5%;">
+                                <a href="{% url 'full_blog' blog.id %}" class="card-title"><h5
+                                        style="font-size: 220%">{{ blog.title|title }}</h5></a>
+                                <p class="user-name">By: {{ blog.writer_name|title }}</p>
+                                <p class="card-text" style="color: #000680;">-{{ blog.date_of_article }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
     {#  CONSTACT US SECTION  #}
     <section id="contact-us">
         <div class="container pt-3 pb-5 pl-5 pr-5">
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <h1 class="h1-responsive display-3 text-center my-4">Contact us</h1>
             <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to
                 contact us directly. Our team will revert back for any assistance.</p>
             {% csrf_token %}
@@ -229,4 +260,19 @@
             </div>
         </div>
     </section>
+    <style>
+        .cover-img {
+            opacity: 1;
+        }
+
+        .user-name {
+            display: inline;
+            font-size: 120%;
+        }
+
+        a, a:hover, a:focus, a:active {
+            color: inherit;
+        }
+
+    </style>
 {% endblock %}

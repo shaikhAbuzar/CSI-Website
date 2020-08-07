@@ -4,6 +4,33 @@
 {% endblock %}
 {% block content %}
     <div class="container mt-4 mb-4">
-        <h1>Blogs Working</h1>
+        {% if blogs == None %}
+            <h1 class="display-2 text-center">Blogs Coming Up 😁</h1>
+        {% endif %}
+        <div class="card-columns">
+            {% for blog in blogs.all %}
+                <div class="card">
+                    <a href="{% url 'full_blog' blog.id %}"> <img src="{{ blog.cover_pic.url }}" class="card-img cover-img" alt="Cover Image"></a>
+                    <div class="card-body">
+                        <div class="w-100 h-100" style="border: 2px solid #000680; padding: 5%;">
+                            <a href="{% url 'full_blog' blog.id %}" class="card-title"><h5 style="font-size: 220%">{{ blog.title|title }}</h5></a>
+                            <p class="user-name">By: {{ blog.writer_name|title }}</p>
+                            <p class="card-text" style="color: #000680;">-{{ blog.date_of_article }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+    <style>
+        .cover-img {
+            opacity: 1;
+        }
+
+        .user-name {
+            display: inline;
+            font-size: 120%;
+        }
+
+    </style>
 {% endblock %}

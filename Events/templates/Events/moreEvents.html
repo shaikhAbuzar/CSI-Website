@@ -5,6 +5,13 @@
 {% endblock %}
 {% block content %}
     <div class="container mt-4 mb-4">
+{#        <div class="mt-3 mb-3" style="align-items: center;">#}
+{#            <form class="form-inline my-2 my-lg-0">#}
+{#                <input class="form-control w-75" type="search" placeholder="Search" aria-label="Search"#}
+{#                       style="background-color: transparent; border: none; border-bottom: 2px solid #93e8fa;">#}
+{#                <a href="">&emsp;<i class="fas fa-search" style="font-size: 160%; color: #93e8fa;"></i></a>#}
+{#            </form>#}
+{#        </div>#}
         {% for event in events %}
             <div class="card mb-4 w-100" style="background-color: #f0f0fd;">
                 <div class="row no-gutters">
@@ -35,7 +42,8 @@
                             <hr/>
                             <div>
                                 {% if eventTitle == 'Upcoming Events' %}
-                                    <a class="btn btn-outline" href="{{ event.registration_url }}" role="button" target="_blank">
+                                    <a class="btn btn-outline" href="{{ event.registration_url }}" role="button"
+                                       target="_blank">
                                         Register
                                     </a>
                                     <hr/>
@@ -47,7 +55,8 @@
                                         Report
                                     </a>
                                     <hr/>
-                                    <a class="btn btn-outline" href="{{ event.images_url }}" role="button" target="_blank">
+                                    <a class="btn btn-outline" href="{{ event.images_url }}" role="button"
+                                       target="_blank">
                                         Images
                                     </a>
                                 {% endif %}
@@ -81,6 +90,14 @@
             background-color: #000680;
             color: #ffffff;
             transition: border 0.5s, background-color 0.75s, color 1s;
+        }
+
+        ::placeholder {
+            color: #93e8fa;
+        }
+
+        ::-ms-input-placeholder {
+            color: #93e8fa;
         }
     </style>
 {% endblock %}

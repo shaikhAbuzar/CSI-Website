@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ blog.title|title }}
+{% endblock %}
+{% block content %}
+    <div class="container mt-4 mb-5">
+        <h1 class="display-4 color-format" style="text-align: center;">{{ blog.title|title }}</h1>
+        <p class="color-format float-right">
+            <i class="fas fa-calendar-day color-format" style="font-size: 140%;"></i>&nbsp;
+            {{ blog.date_of_article }}
+        </p>
+        <div class="pt-4 pb-4">
+            {% if blog.writer_pic %}
+                <img src="{{ blog.writer_pic.url }}" class="writer-pic" alt="Writer Pic">
+            {% else %}
+                <i class="far fa-user-circle color-format" style="font-size: 180%; display: inline;"></i>
+            {% endif %}
+            <p class="color-format writer-name">
+                &ensp;{{ blog.writer_name }} <i class="fas fa-grip-lines-vertical color-format"></i>
+                {% if blog.insta_id %}
+                    <a href="{{ blog.insta_id }}" target="_blank"><i class="fab fa-instagram color-format"></i></a>
+                {% endif %}
+                {% if blog.twitter_id %}
+                    <a href="{{ blog.twitter_id }}" target="_blank"><i class="fab fa-twitter color-format"></i></a>
+                {% endif %}
+                {% if blog.linkedin_id %}
+                    <a href="{{ blog.linkedin_id }}" target="_blank"><i class="fab fa-linkedin color-format"></i></a>
+                {% endif %}
+            </p>
+        </div>
+        <pre>{{ blog.article }}</pre>
+    </div>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("{{ blog.cover_pic.url }}") no-repeat center;
+            background-size: cover;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: Arial, sans-serif;
+            color: #93e8fa;
+            font-size: 120%;
+            text-align: justify;
+        }
+
+        .writer-pic {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            display: inline;
+        }
+
+        .color-format {
+            color: #93e8fa;
+        }
+
+        .writer-name {
+            font-size: 180%;
+            display: inline;
+        }
+    </style>
+{% endblock %}
