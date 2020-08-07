@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
     HOME
 {% endblock %}
 {% block content %}
-{#  CARAOUSEL SECTION  #}
+    {#  CARAOUSEL SECTION  #}
     <section>
         <div class="mt-2 mb-2" style="background-color: #ffffff">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -22,7 +23,7 @@
                         {% if slider.id == 1 %}
                             <div class="carousel-item active">
                                 <div class="row no-gutters">
-                                    <div class="col-8">
+                                    <div class="col-8 shadow-lg">
                                         <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
                                     </div>
                                     <div class="col-4"
@@ -37,7 +38,7 @@
                         {% else %}
                             <div class="carousel-item">
                                 <div class="row no-gutters">
-                                    <div class="col-8">
+                                    <div class="col-8 shadow-lg">
                                         <img src="{{ slider.image.url }}" class="d-block w-100" alt="">
                                     </div>
                                     <div class="col-4"
@@ -63,7 +64,7 @@
             </div>
         </div>
     </section>
-{#  VISION MISSION SECTION  #}
+    {#  VISION MISSION SECTION  #}
     <section id="vision-mission" style="background-color: #f2f2fa;">
         <div class="container" style="">
             <h1 class="text-center" style="padding-top: 2%;"> OUR <span style="color: maroon;">VISION</span></h1>
@@ -105,9 +106,65 @@
             </ul>
         </div>
     </section>
-{#  TODO Events Section  #}
-{#  TODO Blogs Section  #}
-{#  CONSTACT US SECTION  #}
+
+    {#  Events Section  #}
+    <section>
+        <div class="container">
+            <h1 class="card-title display-3 mt-3"
+                style="color: #910838; text-align: center;">
+                EVENTS
+            </h1>
+            <hr class="w-50" style="background-color: #910838; border-width: 2px; margin-top: -1%;">
+
+            {% if events.all == None %}
+                <h1 class="display-1" style="text-shadow: #000680; text-align: center;">
+                    NEW AMAZING EVENTS COMING SOON....!!!😉
+                </h1>
+            {% endif %}
+
+            <div class="row row-cols-1 row-cols-md-2" style="align-items: center;">
+                {% for event in events.all %}
+                    <div class="col-6">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ event.poster.url }}" class="card-img" alt="Event Poster">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ event.title }}</h5>
+                                        <p class="card-text">{{ event.description | truncatechars:180 }}</p>
+                                        <p class="card-text">
+                                            <i class="far fa-calendar-alt"></i> {{ event.event_date }}
+                                            <i class="fas fa-clock"></i> {{ event.event_time }}
+                                        </p>
+                                        <a class="btn btn-md" href="{{ event.registration_url }}" role="button"
+                                           target="_blank" style="background-color: #02099d; color: #63daf3;">
+                                            Register
+                                        </a>
+                                        <a class="btn btn-md" href="{% url 'event_details' event.id %}"
+                                           role="button"
+                                           style="background-color: #02099d; color: #63daf3;">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if events.all != Null %}
+                    <a href="{% url 'all_events' 'Upcoming Events' %}" class="display-4"
+                       style="text-align: center; color: #000680;">
+                        <i class="fas fa-angle-double-right"></i> More Events
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {#  TODO Blogs Section  #}
+    {#  CONSTACT US SECTION  #}
     <section id="contact-us">
         <div class="container pt-3 pb-5 pl-5 pr-5">
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>

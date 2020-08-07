@@ -69,7 +69,8 @@
                 <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'eventsHome' %}">Events</a>
                 <a class="nav-item nav-link" href="#">Committee</a>
-                <a class="nav-item nav-link" href="#contact-us">Contact Us</a>
+                <a class="nav-item nav-link" href="{% url 'blogs_home' %}">Blogs</a>
+                <a class="nav-item nav-link" href="{% url 'home' %}#contact-us">Contact Us</a>
             </div>
         </div>
     </div>
@@ -100,16 +101,15 @@
                     <a href="{% url 'eventsHome' %}" style="color: #000680;">Events</a>
                 </p>
                 <p>
-                    <a href="#vision-mission" style="color: #000680;">About us</a>
+                    <a href="{% url 'home' %}#vision-mission" style="color: #000680;">About us</a>
                 </p>
                 <p>
-                    <a href="#contact-us" style="color: #000680;">Contact Us</a>
+                    <a href="{% url 'home' %}#contact-us" style="color: #000680;">Contact Us</a>
                 </p>
-                <!-- TODO Blogs
+                <!-- TODO Blogs -->
                 <p>
-                    <a href="#!" style="color: #000680;">Blogs</a>
+                    <a href="{% url 'blogs_home' %}" style="color: #000680;">Blogs</a>
                 </p>
-                -->
             </div>
             <hr class="w-100 clearfix d-md-none">
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
@@ -121,7 +121,7 @@
         </div>
         <hr>
         <div class="row d-flex align-items-center">
-            <div class="col-md-7 col-lg-8">
+            <div class="col-md-3 col-lg-8">
                 <p class="text-center text-md-left">© {% now 'Y' %} Copyright: CSI MHSSCE</p>
             </div>
             <div class="col-md-5 col-lg-4 ml-lg-0">
@@ -149,6 +149,21 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <hr>
+            <div class="col-md-4 col-lg-8">
+                <p class="text-center text-md-left">
+                    Website Designed and Developed By:
+                    <a href="https://www.linkedin.com/in/abuzar-shaikh-15086414b/" target="_blank"
+                       style="text-decoration: none; color: #000680; font-size: 120%;">
+                        Abuzar Shaikh
+                    </a>
+                    &nbsp;&&nbsp;
+                    <a href="https://www.linkedin.com/in/sadiya-shaikh-4296b0182/" target="_blank"
+                       style="text-decoration: none; color: #000680; font-size: 120%;">
+                        Sadiya Shaikh
+                    </a>
+                </p>
             </div>
         </div>
     </div>

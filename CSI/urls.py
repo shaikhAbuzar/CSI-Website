@@ -22,6 +22,7 @@ import Home.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.views.home, name='home'),
-    path('events/', include('Events.urls'))
+    path('events/', include('Events.urls')),
+    path('blogs/', include('Blogs.urls')),
     # path('sendQuery',),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
