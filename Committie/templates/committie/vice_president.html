@@ -1,30 +1,5 @@
-
-      
-  <!-- TODO To add president banner  -->
-  <div class="container-fluid " style="background-color: #12022c; 
-    color: #ffffff; padding-top: 25px; padding-bottom: 25px;">
-                <i class="fas fa-id-card-alt" style="font-size: 160%; color: rgb(255, 255, 255);"></i>
-                <h6 class=" text-uppercase mb-3 "
-                    style="display: inline-flex ;font-size: 150%; color: rgb(255, 254, 255);">
-                    &nbsp;  Vice President </h6>
-            </div>
-  {% for p in vice_president.all %}
-  
-  <div class="card mb-3" style="max-width: 575px; margin-top: 15px; margin-right: 8px; margin-left: 2px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="{{p.Image.url}}" class="card-img" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h4 class="card-title">{{p.Designation}}</h5>
-          <h5 class="card-title">{{p.Name}}</h5>
-              <p class="card-text">{{ p.Quote }}</p>
-          
-        </div>
-      </div>
-    </div>
-  </div>
- {% endfor %}
-
-
+<div class="row row-cols-3 justify-content-md-center mb-5 mt-0 pt-0">
+    {% for student in vice_president.all %}
+        {% include 'committie/CommittieTemplate.html' %}
+    {% endfor %}
+</div>

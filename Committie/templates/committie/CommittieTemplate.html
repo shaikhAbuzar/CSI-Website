@@ -1,0 +1,17 @@
+<div class="col-md-4 align-self-center">
+    <div class="profile-card">
+        <div class="profile-img">
+            <img src="{{ student.Image.url }}" alt="Team Image"/>
+        </div>
+        <div class="profile-content">
+            <h2 class="title">
+                {% if student.Linkedin %}
+                    <a href="{{ student.Linkedin }}" style="color: #93e8fa;" target="_blank">{{ student.Name }}</a>
+                {% else %}
+                    {{ student.Name }}
+                {% endif %}
+                <span>{{ student.Designation }}</span>
+            </h2>
+        </div>
+    </div>
+</div>
