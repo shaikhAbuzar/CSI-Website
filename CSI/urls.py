@@ -24,6 +24,6 @@ urlpatterns = [
     path('', Home.views.home, name='home'),
     path('events/', include('Events.urls')),
     path('blogs/', include('Blogs.urls')),
-    path('committee/',include('Committie.urls')),
-    # path('sendQuery',),
+    path('committee/', include('Committie.urls')),
+    path('sendQuery/', Home.views.sent_mail, name='send_email'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
