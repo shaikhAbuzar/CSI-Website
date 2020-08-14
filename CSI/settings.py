@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wrmq&1v3x9hwl*mf3d8-u=vuewpul@c$h7vhalp)jd@0sxm%)='
+SECRET_KEY = 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'csi',
         'USER': 'postgres',
-        'PASSWORD': 'Abuzar@123',
+        'PASSWORD': 
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -143,5 +143,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'djangotestforme@gmail.com'
-EMAIL_HOST_PASSWORD = 'test-123'
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
