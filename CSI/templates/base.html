@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <title>{% block title %}{{ settings.SETTING }}{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'csi-logo.png' %}">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,8 +58,8 @@
 <!-- Header -->
 <nav class="navbar navbar-expand-lg" style="background-color: #e5e6f6;">
     <div class="container">
-        <a class="navbar-brand text-format" href="{% url 'home' %}" id="logo-name">
-            <img src="{% static 'csi-logo.png' %}" style="height: 65px; width: 65px;" alt="Logo"/>MHSSCE CHAPTER
+        <a class="navbar-brand text-format display-4" href="{% url 'home' %}" id="logo-name">
+            <img src="{% static 'csi-logo.png' %}" style="height: 35px; width: 35px;" alt="Logo"/> MHSSCE CHAPTER
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +79,7 @@
 {% block content %}
 {% endblock %}
 <!-- Footer -->
-<footer class="page-footer font-small pt-4" style="background-color: #e5e6f6">
+<footer class="page-footer font-small pt-4 shadow-lg" style="background-color: #e5e6f6">
     <div class="container text-center text-md-left">
         <div class="row text-center text-md-left mt-2 pb-3">
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-2">
@@ -89,13 +90,13 @@
             </div>
             <!-- Center Spacing Column -->
             <hr class="w-100 clearfix d-md-none">
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2">
+            <div id="map-container-google-1" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2">
                 <h4>Find Us</h4>
-                <div id="map-container-google-1" class="z-depth-1-half map-container"
-                     style="height: 100px; width:50px;">
+                <!--<div  class="z-depth-1-half map-container"-->
+                     <!--style="height: 100px; width:50px;">-->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.160671485052!2d72.82883621489951!3d18.968510287149652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce40ffcfcacd%3A0x5d71ff22760f8e77!2sM.H.+Saboo+Siddik+College+of+Engineering!5e0!3m2!1sen!2sin!4v1564735028613!5m2!1sen!2sin"
                             style="border:0;width: 210px;" allowfullscreen></iframe>
-                </div>
+                <!--</div>-->
             </div>
 
             <hr class="w-100 clearfix d-md-none">

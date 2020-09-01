@@ -25,7 +25,7 @@ SECRET_KEY = 'wrmq&1v3x9hwl*mf3d8-u=vuewpul@c$h7vhalp)jd@0sxm%)='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['csimhssce.pythonanywhere.com']
 
 
 # Application definition
@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'CSI.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'csi',
-        'USER': 'postgres',
-        'PASSWORD': 'Abuzar@123',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'csimhssce$csi',
+        'USER': 'csimhssce',
+        'PASSWORD': 'csi@1234',
+        'HOST': 'csimhssce.mysql.pythonanywhere-services.com',
+        'PORT': 3306,
     }
 }
 

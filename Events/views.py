@@ -13,7 +13,7 @@ def events_home(request):
 
 def event_details(request, event_id):
 	event = get_object_or_404(Event, pk=event_id)
-	return render(request, r'Events\eventDetails.html', {'event': event})
+	return render(request, r'Events/eventDetails.html', {'event': event})
 
 
 # TODO More Events Page
@@ -22,4 +22,4 @@ def all_events(request, event_type):
 		events = Event.objects.filter(status='completed').order_by('-event_date', '-event_time')
 	else:
 		events = Event.objects.filter(status='upcoming').order_by('event_date', 'event_time')
-	return render(request, r'Events\moreEvents.html', {'eventTitle': event_type, 'events': events})
+	return render(request, r'Events/moreEvents.html', {'eventTitle': event_type, 'events': events})

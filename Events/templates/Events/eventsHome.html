@@ -8,12 +8,12 @@
     <section>
         <div class="container">
             <div class="card bg-dark mt-4 mb-4">
-                <img src="{% static 'upcomingEvents.jpg' %}" class="card-img" alt="Upcoming Image">
+                <img src="{% static 'upcomingEvents.jpg' %}" class="card-img img-fluid" alt="Upcoming Image">
                 <div class="card-img-overlay">
-                    <h1 class="card-title display-3"
+                    <h5 class="card-title display-3"
                         style="color: #63daf3; text-align: center; font-family: Arial,fantasy;">
                         UPCOMING EVENTS
-                    </h1>
+                    </h5>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
 
             <div class="row row-cols-1 row-cols-md-2" style="align-items: center;">
                 {% for event in upcoming_events.all %}
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
@@ -67,15 +67,15 @@
             <div class="card bg-dark mt-4 mb-4">
                 <img src="{% static 'pastEvents.jpg' %}" class="card-img" alt="Upcoming Image">
                 <div class="card-img-overlay">
-                    <h1 class="card-title display-3"
+                    <h5 class="card-title display-4"
                         style="color: #e3f6d6; text-align: center; font-family: Arial,fantasy;">
                         PAST EVENTS
-                    </h1>
+                    </h5>
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2" style="align-items: center;">
                 {% for event in past_events.all %}
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">

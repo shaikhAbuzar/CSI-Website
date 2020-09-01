@@ -44,4 +44,4 @@ def members(request):
 		'treasurer': treasurer,
 		'joint_treasurer': joint_treasurer,
 	}
-	return render(request, r'committie\members.html', dictionary)
+	return render(request, r'committie/members.html', dictionary)

@@ -14,7 +14,7 @@ def home(request):
 		events = None
 	if not Blogs:
 		blogs = None
-	return render(request, r'home\home.html', {'sliders': carouselSlider, 'events': events, 'blogs': blogs, 'mail': 'unsent'})
+	return render(request, r'home/home.html', {'sliders': carouselSlider, 'events': events, 'blogs': blogs, 'mail': 'unsent'})
 
 
 def sent_mail(request):
@@ -40,6 +40,6 @@ def sent_mail(request):
 			fail_silently=False
 		)
 		dictionary = {'sliders': carouselSlider, 'events': events, 'blogs': blogs, 'mail': 'sent'}
-		return render(request, r'home\home.html', dictionary)
+		return render(request, r'home/home.html', dictionary)
 	else:
-		return render(request, r'home\home.html', {'sliders': carouselSlider, 'events': events, 'blogs': blogs, 'mail': 'unsent'})
+		return render(request, r'home/home.html', {'sliders': carouselSlider, 'events': events, 'blogs': blogs, 'mail': 'unsent'})
